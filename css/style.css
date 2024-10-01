@@ -1,0 +1,102 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    color: white;
+    font-size: 16px;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+    font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+}
+
+.main-content{
+    width: 50vw;
+    height: 100vh;
+    padding: 20px;
+    margin: auto;
+    border: #0d1d31 1px solid;
+    border-radius: 5px;
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+    overflow: auto;
+}
+
+.main-content a{
+    color: floralwhite;
+}
+
+.main-content > article {
+    padding-left: 10px;
+}
+
+article .article-subject{
+    font-size: 20px;
+}
+
+.code-block{
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    color: #f0f6fc;
+    font-size: 14px;
+    background-color: #151b23;
+    font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+    border: #c0c0c0 1px solid;
+}
+
+.code-block .code-block-comment{
+    color: gray;
+}
+
+.code-block p{
+    margin: 5px 0;
+}
+
+p  span.code{
+    font-size: 14px;
+    font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace !important;
+}
+
+p.article-subject .span.code{
+    font-size: 16px !important;
+}
+
+hr.solid {
+    border-top: 2px solid rgba(3, 102, 214, 0.6)
+  }
+
+  div.note{
+    padding: 10px 10px;
+  }
+
+  div.note p{
+    margin: 0;
+    padding: 5px;
+    text-align: justify;
+  }
+
+  div.note.red{
+    background-color: #a70b31b0;
+    border: 1px solid #EDD;
+  }
+
+  div.note.yellow{
+    background-color: #f2a600bf;
+    border: 1px solid #FEEC6F;
+  }
+
+  div.note.green{
+    background-color: #0ce70ca6;
+    border: 1px solid #DED;
+  }
+
+
+  div.note.primary{
+    background-color: #9ea9a9b5;
+    border: 1px solid #DEE;
+  }
+
+
+  
