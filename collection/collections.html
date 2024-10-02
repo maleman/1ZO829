@@ -105,11 +105,11 @@
             <code class="code-block">
                     <p><span class="code-block-comment">// * Represente el inicio de la pila</span></p>
                     <p>Deque<Integer> deque = new ArrayDeque<>();</p>
-                    <p>deque.add(100);<span class="code-block-comment">//{*100}</span></p>
-                    <p>deque.add(200);<span class="code-block-comment">//{*100, 200}</span></p>
-                    <p>deque.addFirst(300);<span class="code-block-comment">//{*300, 100, 200}</span></p>
-                    <p>deque.addLast(400);<span class="code-block-comment">//{*300, 100, 200, 400}</span></p>
-                    <p>deque.remove(200);<span class="code-block-comment">//{*300, 100, 400}</span></p>
+                    <p>deque.add(100);<span class="code-block-comment">//[*100]</span></p>
+                    <p>deque.add(200);<span class="code-block-comment">//[*100, 200]</span></p>
+                    <p>deque.addFirst(300);<span class="code-block-comment">//[*300, 100, 200]</span></p>
+                    <p>deque.addLast(400);<span class="code-block-comment">//[*300, 100, 200, 400]</span></p>
+                    <p>deque.remove(200);<span class="code-block-comment">//[*300, 100, 400]</span></p>
                 </code>
 
             <p class="article-subject">Metodos <span class="code">push(E), pop(), peek()</span></p>
@@ -147,6 +147,50 @@
 
         <h1>List</h1>
         <hr class="solid">
+        <article>
+            <p class="article-subject">1. <span class="code">List.of()</span> crea un objeto List inmutable
+                <p>
+                <div class="note yellow">
+                    <p><b>Throws <span class="code">NullPointerException</span> si uno de los elementos es null</b></p>
+                </div>
+                <p><i>Existen 12 sobrecargas al metodo Of</i></p>
+                <code class="code-block">
+                        <p>List.of();</p>
+                        <p>List.of(E1);</p>
+                        <p>List.of(E1,....,E10);</p>
+                        <p>List.of(E1.... elements);</p>
+                    </code>
+
+                <p class="article-subject">2. <span class="code">equals(Object list)</span></p>
+                <p>La implementacion de equals en List, retornara verdadero si el objeto a comparar es una instancia de List 
+                    y si ambos objetos list contienen los mismos elementos en el <b>mismo orden</b></p>
+
+        </article>
+
+        <h1>LinkedList (Implementa List, Queue y Deque)</h1>
+        <hr class="solid">
+        <article>
+            <code class="code-block">
+                <p><span class="code-block-comment">//Cuando se trata de indices Java empieza a contar de cero</span></p>
+                <p>List<String> list = new LinkedList<>();</p>
+                <p>list.add("ONE");<span class="code-block-comment">//[ONE]</span></p>
+                <p>list.add("TWO");<span class="code-block-comment">//[ONE, TWO]</span></p>
+                <p>list.remove(1);<span class="code-block-comment">//[ONE]</span></p>
+                <p>System.out.println(list);<span class="code-block-comment">//Imprime [ONE]</span></p>
+                <br/>
+                <p>Queue<String> queue = new LinkedList<>();</p>
+                <p>queue.add("ONE");<span class="code-block-comment">//[ONE]</span></p>
+                <p>queue.add("TWO");<span class="code-block-comment">//[ONE, TWO]</span></p>
+                <p>queue.remove();<span class="code-block-comment">//[TWO]</span></p>
+                <p>System.out.println(queue);<span class="code-block-comment">//Imprime [TWO]</span></p>    
+                <br/>
+                <p>Deque deque = new LinkedList<>();</p>
+                <p>deque.push("ONE");<span class="code-block-comment">//[ONE]</span></p>
+                <p>deque.push("TWO");<span class="code-block-comment">//[TWO, ONE]</span></p>
+                <p>deque.pop();<span class="code-block-comment">//[ONE]</span></p>
+                <p>System.out.println(deque);<span class="code-block-comment">//Imprime [ONE]</span></p>    
+            </code>
+        </article>
 
         <h1>Map</h1>
         <hr class="solid">

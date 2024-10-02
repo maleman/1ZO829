@@ -20,6 +20,8 @@ body {
   border-radius: 5px;
   box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
   overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #C0C0C0 #000;
 }
 
 .main-content a {
