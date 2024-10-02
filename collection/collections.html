@@ -1,96 +1,108 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="../css/style.css">
-    </head>
-    <body>
-        <div class="main-content">
-            <h1>Java Collection API</h1>
-            <hr class="solid">
-            <h1>Set</h1>
-            <hr class="solid">
-            <article>
-                <p class="article-subject">1. <span class="code">Set.of()</span> crea un objeto Set inmutable<p>
-                <div class="note yellow">
-                    <p><b>Throws <span class="code">NullPointerException</span> if an element is null</b></p>
+
+<head>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="main-content">
+        <h1>Java Collection API</h1>
+        <hr class="solid">
+        <h1>Set</h1>
+        <hr class="solid">
+        <article>
+            <p class="article-subject">1. <span class="code">Set.of()</span> crea un objeto Set inmutable
+            <p>
+            <div class="note yellow">
+                <p><b>Throws <span class="code">NullPointerException</span> if an element is null</b></p>
                 <p><b>Throws <span class="code">IllegalArgumentException</span> if the elements are duplicated</b></p>
-                </div> 
-                <p><i>Existen 12 sobrecargas al metodo Of</i></p>   
-                <code class="code-block">
+            </div>
+            <p><i>Existen 12 sobrecargas al metodo Of</i></p>
+            <code class="code-block">
                     <p>Set.of();</p>
                     <p>Set.of(E1);</p>
                     <p>Set.of(E1,....,E10);</p>
                     <p>Set.of(E1.... elements);</p>
                 </code>
 
-                <p class="article-subject">2. <span class="code">equals(Object set)</span> Metodo equals del la interfaz Set</p>
-                <ol>
-                    <li>Compara si el Objeto a comparar es una instancia de Set</li>
-                    <li>Si ambos objetos Set tienen la misma cantidad de elemenentos (size)</li>
-                    <li>Compara que cada uno de los elementos que contiene el Set1 esten en el Set2 no importando el orden, utiliza el metodo equals del elemento contenido.</i></li>
-                </ol>
-                <p><a href="src/Test.java">Ejemplo de equals() y (==) en la interfaz Set</a></p> 
-                <div class="note red">
-                    <p>La invocacion de un metodo que intente mutar un objeto Set inmutable sea <span class="code">Set(add, addAll, remove, removeAll, retainAll)</span> 
-                        provocara que java arroje una  UnsupportedOperationException.</p>
-                </div>
-                <code class="code-block">
+            <p class="article-subject">2. <span class="code">equals(Object set)</span> Metodo equals del la interfaz Set
+            </p>
+            <ol>
+                <li>Compara si el Objeto a comparar es una instancia de Set</li>
+                <li>Si ambos objetos Set tienen la misma cantidad de elemenentos (size)</li>
+                <li>Compara que cada uno de los elementos que contiene el Set1 esten en el Set2 no importando el orden,
+                    utiliza el metodo equals del elemento contenido.</i></li>
+            </ol>
+            <p><a href="src/Test.java">Ejemplo de equals() y (==) en la interfaz Set</a></p>
+            <div class="note red">
+                <p>La invocacion de un metodo que intente mutar un objeto Set inmutable sea <span class="code">Set(add,
+                        addAll, remove, removeAll, retainAll)</span>
+                    provocara que java arroje una UnsupportedOperationException.</p>
+            </div>
+            <code class="code-block">
                     <p>Set<Character> set = Set.of('A', 'F', 'I', 'O', 'U');</p>
                     <p>set.remove(Character.valueOf('F'));<span class="code-block-comment">//Throws UnsupportedOperation</span></p>    
                 </code>
 
-                <p class="article-subject">3. <span class="code">copyOf()</span> Set Interface</p>
-                <p>Si el Objeto set desde donde se llama el metodo copyOf() es inmutable, retornara la instancia del objeto actual y no se creara una copia del objeto.</p>
-                <p><a href="src/Test.java">Ejemplo de equals() y (==) en la interfaz Set</a></p>    
-                <code class="code-block">
+            <p class="article-subject">3. <span class="code">copyOf()</span> Set Interface</p>
+            <p>Si el Objeto set desde donde se llama el metodo copyOf() es inmutable, retornara la instancia del objeto
+                actual y no se creara una copia del objeto.</p>
+            <p><a href="src/Test.java">Ejemplo de equals() y (==) en la interfaz Set</a></p>
+            <code class="code-block">
                     <p>var sb1 = new StringBuilder("A");</p>
                     <p>var sb2 = new StringBuilder("B");</p>
                     <p>var set1 = Set.of(sb1, sb2);</p>
                     <p>var set2 = Set.copyOf(set1);</p>
                     <p>System.out.println(set1 == set2);<span class="code-block-comment">//Prints true</span></p>
                 </code>
-            </article>
+        </article>
 
-            <h2>HashSet (Lista de elementos unicos)</h2>
-            <hr class="solid">
-            <article>
-                <p><span class="code">add()</span></p>
-                <p>HashSet makes use of hashCode to find out the correct bucket, it then makes use of equals(Object) method to find out duplicate objects. </p>
-                <div class="note green" style="text-align: justify;">
-                    <p>Al soobreescribir el metodo equals() de una clase, se debe de sobreescribir hashCode(), de no hacerlo se viola el contrato general 
-                        Object.hashCode(), hacer esto previene el funcionamiento correcto de la clase en conjunto con todas las collecciones hash-based, 
-                        incluyendo HashMap, HashSet, and Hashtable.
-                    </p>
-                </div>
-                <p>HashSet permite agregar elementos de tipo null</p>
-            </article>
+        <h2>HashSet (Lista de elementos unicos)</h2>
+        <hr class="solid">
+        <article>
+            <p><span class="code">add()</span></p>
+            <p>HashSet makes use of hashCode to find out the correct bucket, it then makes use of equals(Object) method
+                to find out duplicate objects. </p>
+            <div class="note green" style="text-align: justify;">
+                <p>Al soobreescribir el metodo equals() de una clase, se debe de sobreescribir hashCode(), de no hacerlo
+                    se viola el contrato general
+                    Object.hashCode(), hacer esto previene el funcionamiento correcto de la clase en conjunto con todas
+                    las collecciones hash-based,
+                    incluyendo HashMap, HashSet, and Hashtable.
+                </p>
+            </div>
+            <p>HashSet permite agregar elementos de tipo null</p>
+        </article>
 
 
-            <h2>TreeSet (Lista de elementos ordenados y unicos)</h2>
-            <hr class="solid">
-            <article>
-                <div class="note red">
-                    <p>TreeSet cannot contains null values</p>
-                </div>
-                <code class="code-block">
+        <h2>TreeSet (Lista de elementos ordenados y unicos)</h2>
+        <hr class="solid">
+        <article>
+            <div class="note red">
+                <p>TreeSet cannot contains null values</p>
+            </div>
+            <code class="code-block">
                     <p>Set<String> set = new TreeSet<>(Arrays.asList(null,null,null)); <span class="code-block-comment">//Throws NullPointerException</span></p>
                 </code>
-                <br>
-                <div class="note primary">
-                    <p>
-                        TreeSet requires you to provide either Comparable or Comparator. If you don't provide Comparator explicitly, 
-                        then for natural ordering <i><b>your class must implement Comparable interface.</b></i>
-                    </p>
-                </div>
-            </article>
+            <br>
+            <div class="note primary">
+                <p>
+                    TreeSet requires you to provide either Comparable or Comparator. If you don't provide Comparator
+                    explicitly,
+                    then for natural ordering <i><b>your class must implement Comparable interface.</b></i>
+                </p>
+            </div>
+        </article>
 
-            <h1>Deque (Pila FIFO)</h1>
-            <hr class="solid">
-            <article>
-                <div class="note red">
-                    <p>La interfaz Deque  solo posee en motodo <span class="code">remove(T value)</span>,no posee <span class="code">remove(int index)</span>  </p>
-                </div>
-                <code class="code-block">
+        <h1>Deque (Pila FIFO y FIFO)</h1>
+        <hr class="solid">
+        <article>
+            <div class="note red">
+                <p>La interfaz Deque solo posee el metodo <span class="code">remove(T value)</span>,no posee <span
+                        class="code">remove(int index)</span> </p>
+            </div>
+            <code class="code-block">
                     <p><span class="code-block-comment">// * Represente el inicio de la pila</span></p>
                     <p>Deque<Integer> deque = new ArrayDeque<>();</p>
                     <p>deque.add(100);<span class="code-block-comment">//{*100}</span></p>
@@ -99,30 +111,65 @@
                     <p>deque.addLast(400);<span class="code-block-comment">//{*300, 100, 200, 400}</span></p>
                     <p>deque.remove(200);<span class="code-block-comment">//{*300, 100, 400}</span></p>
                 </code>
-            </article>
-            
+
             <p class="article-subject">Metodos <span class="code">push(E), pop(), peek()</span></p>
             <p>push, pop, peek son terminologia </p>
-            
-            <h1>Map</h1>
-            <hr class="solid">
-            <article>
-                <p class="article-subject">1. <span class="code">Map.of()</span> crea un objeto Map inmutable<p>
-                    <div class="note yellow">
-                        <p><b>Throws <span class="code">NullPointerException</span> if an key or value is null</b></p>
-                    <p><b>Throws <span class="code">IllegalArgumentException</span> if the key are duplicated</b></p>
-                    </div> 
-                    <p><i>Existen 11 sobrecargas al metodo Of <b>(Solo se permite 10 pares de clave y valor)</b></i></p>   
-                    <code class="code-block">
+            <ul style="list-style: none;">
+                <li>
+                    <p> <span class="code">push(E) invoca addFirst(E)</span></p>
+                </li>
+                <li>
+                    <p> <span class="code">pop() invoca removeFirst()</span></p>
+                </li>
+                <li>
+                    <p> <span class="code">peek() invoca peekFirst()</span>
+                        Solo retorna el valor no remueve el elemento de la pila
+                    </p>
+                </li>
+            </ul>
+            <p><a href="src/Test3.java">Ejemplo push, pop, peek</a></p>
+            <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Deque.html">Documentacion
+                Oracle</a>
+            <img src="../img/Screenshot 2024-10-01 175926.png" alt="Summary of Deque methods" />
+            <br />
+            <img src="../img/Screenshot 2024-10-01 180632.png" alt="Comparison of Queue and Deque methods" />
+            <br />
+            <img src="../img/Screenshot 2024-10-01 180845.png" alt="Comparison of Stack and Deque methods" />
+            <br />
+            <div class="note red">
+                <p><b>Importante</b></p>
+                <p>Invocar <span class="code">removeFirst(), removeLast(), getFirst(), getLast(), remove(),
+                        element()</span>
+                    sobre un Deque vacio retornara NoSuchElementException </p>
+            </div>
+
+        </article>
+
+        <h1>List</h1>
+        <hr class="solid">
+
+        <h1>Map</h1>
+        <hr class="solid">
+        <article>
+            <p class="article-subject">1. <span class="code">Map.of()</span> crea un objeto Map inmutable
+            <p>
+            <div class="note yellow">
+                <p><b>Throws <span class="code">NullPointerException</span> if an key or value is null</b></p>
+                <p><b>Throws <span class="code">IllegalArgumentException</span> if the key are duplicated</b></p>
+            </div>
+            <p><i>Existen 11 sobrecargas al metodo Of <b>(Solo se permite 10 pares de clave y valor)</b></i></p>
+            <code class="code-block">
                         <p>Map.of(K k1, V v1);</p>
                         <p>Map.of(K k1, V v1,....,K k10, V v10);</p>
                     </code>
-            </article>
-            <div class="note red">
-                <p>Verificar que la cantidad de entradas sea menor a 10, ya que no existe la sobrecarga de vargArgs para Map.of</p>
-            </div>
-            <p>Si se necesita crear un Map inmutable con mas de 10 llaves se debe de usar el metodo:</p>
-            <p><span class="code">Map.ofEntries(Map.Entry<? extends K, ? extends V> entries)</span> </p>
+        </article>
+        <div class="note red">
+            <p>Verificar que la cantidad de entradas sea menor a 10, ya que no existe la sobrecarga de vargArgs para
+                Map.of</p>
+        </div>
+        <p>Si se necesita crear un Map inmutable con mas de 10 llaves se debe de usar el metodo:</p>
+        <p><span class="code">Map.ofEntries(Map.Entry
+                <? extends K, ? extends V> entries)</span> </p>
 
             <p class="article-subject">2. <span class="code">equals(Object)</span></p>
             <p>Si se determina que el objeto es Map y si contiene el mismo set de mapeo, m1.equals(m2) retornara verdadero si y solo si m2 es una instancia de Map y
