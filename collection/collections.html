@@ -14,9 +14,9 @@
         <article>
             <p class="article-subject">1. <span class="code">Set.of()</span> crea un objeto Set inmutable
             <p>
-            <div class="note yellow">
-                <p><b>Throws <span class="code">NullPointerException</span> if an element is null</b></p>
-                <p><b>Throws <span class="code">IllegalArgumentException</span> if the elements are duplicated</b></p>
+            <div class="note warning">
+                <p><b>Lanza <span class="code">NullPointerException</span> </b>  si uno de los elementos es null,
+                <b>Lanza <span class="code">IllegalArgumentException</span></b> si contiene elementos duplicados</p>
             </div>
             <p><i>Existen 12 sobrecargas al metodo Of</i></p>
             <code class="code-block">
@@ -35,9 +35,9 @@
                     utiliza el metodo equals del elemento contenido.</i></li>
             </ol>
             <p><a href="src/Test.java">Ejemplo de equals() y (==) en la interfaz Set</a></p>
-            <div class="note red">
-                <p>La invocacion de un metodo que intente mutar un objeto Set inmutable sea <span class="code">Set(add,
-                        addAll, remove, removeAll, retainAll)</span>
+            <div class="note danger">
+                <p>La invocacion de un metodo que intente mutar un objeto Set inmutable sea <b><span class="code">Set(add,
+                        addAll, remove, removeAll, retainAll)</span></b>
                     provocara que java arroje una UnsupportedOperationException.</p>
             </div>
             <code class="code-block">
@@ -64,8 +64,8 @@
             <p><span class="code">add()</span></p>
             <p>HashSet makes use of hashCode to find out the correct bucket, it then makes use of equals(Object) method
                 to find out duplicate objects. </p>
-            <div class="note green" style="text-align: justify;">
-                <p>Al soobreescribir el metodo equals() de una clase, se debe de sobreescribir hashCode(), de no hacerlo
+            <div class="note success" style="text-align: justify;">
+                <p>Al sobreescribir el metodo equals() de una clase, se debe de sobreescribir hashCode(), de no hacerlo
                     se viola el contrato general
                     Object.hashCode(), hacer esto previene el funcionamiento correcto de la clase en conjunto con todas
                     las collecciones hash-based,
@@ -79,7 +79,7 @@
         <h2>TreeSet (Lista de elementos ordenados y unicos)</h2>
         <hr class="solid">
         <article>
-            <div class="note red">
+            <div class="note danger">
                 <p>TreeSet no puede contener valores nulos</p>
                 <code class="code-block">
                     <p>Set<String> set = new TreeSet<>(Arrays.asList(null,null,null)); <span class="code-block-comment">//Throws NullPointerException</span></p>
@@ -87,29 +87,37 @@
             </div>
             
             <br>
-            <div class="note primary">
+            <div class="note info">
                 <p>
-                    TreSet requeire que se le <i>suministre un Comparator o que los elementos a contener implemente Comparator</i>, 
-                    de no hacerlo lanzara RuntimeException
-                    <code class="code-block">
-                        <p>record Student(String name, int age) {} <span class="code-block-comment">//Record no implementa Comparable</span></p>
-                        <p>Set<Student> students = new TreeSet<>();<span class="code-block-comment">//No se le provee un comparator</span></p></p>
-                        <p>students.add(new Student("maleman", 35));<span class="code-block-comment">//Lanza RuntimeException</span></p>    
-                        <br>
-                         <p>Set<Student> studentsCorrecto = new TreeSet<>((Student s1, Student s2) -> s2.age() - s1.age());<span class="code-block-comment">//Se le provee un comparator</span></p></p>
-                         <p>studentsCorrecto.add(new Student("maleman", 35));<span class="code-block-comment">//Todo Bien</span></p>    
-                        
-                    </code>
-                    si no se prevee un Comparator explicitamente entonces se ordenaran por orden natural.
-                    <i><b>your class must implement Comparable interface.</b></i>
+                    TreeSet requeire que se le <i>suministre un Comparator o que los elementos a contener implemente Comparator</i>, 
+                    de no hacerlo lanzara RuntimeException si no se prevee un Comparator explicitamente entonces se ordenaran por orden natural.
                 </p>
+                <code class="code-block">
+                    <p>
+                        record Student(String name, int age) {}; <span class="code-block-comment">//Record no implementa Comparable</span>
+                    </p>
+                    <p>
+                        Set<Student> students = new TreeSet<>();<span class="code-block-comment">//No se le provee un comparator</span>
+                    </p>
+                    <p>
+                        students.add(new Student("maleman", 35));<span class="code-block-comment">//Lanza RuntimeException</span>
+                    </p>    
+                    <br>
+                     <p>
+                        Set<Student> studentsCorrecto = new TreeSet<>((Student s1, Student s2) -> s1.age() - s2.age());<span class="code-block-comment">//Se le provee un comparator</span>
+                    </p>
+                     <p>
+                        studentsCorrecto.add(new Student("maleman", 35));<span class="code-block-comment">//Todo Bien</span>
+                    </p>    
+                    
+                </code>
             </div>
         </article>
 
         <h1>Deque (Pila FIFO y FIFO)</h1>
         <hr class="solid">
         <article>
-            <div class="note red">
+            <div class="note danger">
                 <p>La interfaz Deque solo posee el metodo <span class="code">remove(T value)</span>,no posee <span
                         class="code">remove(int index)</span> </p>
             </div>
@@ -147,7 +155,7 @@
             <br />
             <img src="../img/Screenshot 2024-10-01 180845.png" alt="Comparison of Stack and Deque methods" />
             <br />
-            <div class="note red">
+            <div class="note danger">
                 <p><b>Importante</b></p>
                 <p>Invocar <span class="code">removeFirst(), removeLast(), getFirst(), getLast(), remove(),
                         element()</span>
@@ -161,8 +169,8 @@
         <article>
             <p class="article-subject">1. <span class="code">List.of()</span> crea un objeto List inmutable
                 <p>
-                <div class="note yellow">
-                    <p><b>Throws <span class="code">NullPointerException</span> si uno de los elementos es null</b></p>
+                <div class="note warning">
+                    <p><b>Throws <span class="code">NullPointerException</span></b> si uno de los elementos es null</p>
                 </div>
                 <p><i>Existen 12 sobrecargas al metodo Of</i></p>
                 <code class="code-block">
@@ -208,9 +216,9 @@
         <article>
             <p class="article-subject">1. <span class="code">Map.of()</span> crea un objeto Map inmutable
             <p>
-            <div class="note yellow">
-                <p><b>Throws <span class="code">NullPointerException</span> if an key or value is null</b></p>
-                <p><b>Throws <span class="code">IllegalArgumentException</span> if the key are duplicated</b></p>
+            <div class="note warning">
+                <p><b>Lanza <span class="code">NullPointerException</span></b> si se le suministra un valor o clave de tipo null
+                <b>Throws <span class="code">IllegalArgumentException</span></b> si contiene claves duplicadas </p>
             </div>
             <p><i>Existen 11 sobrecargas al metodo Of <b>(Solo se permite 10 pares de clave y valor)</b></i></p>
             <code class="code-block">
@@ -218,7 +226,7 @@
                         <p>Map.of(K k1, V v1,....,K k10, V v10);</p>
                     </code>
         </article>
-        <div class="note red">
+        <div class="note danger">
             <p>Verificar que la cantidad de entradas sea menor a 10, ya que no existe la sobrecarga de vargArgs para
                 Map.of</p>
         </div>
@@ -235,7 +243,7 @@
             <h2>TreeMap (Mapa de clave ordenada)</h2>
             <hr class="solid">
             <article>
-                <div class="note primary">
+                <div class="note info">
                     <p>TreeMap es un mapa ordenado por lo que requiere que se le suministre un Comparator para ordenar las claves, no acepta claves de tipo null</p>
                 </div>
                 
