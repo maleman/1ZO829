@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ESP">
+    <head>
+        <link rel="stylesheet" href="../css/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="main-content">
+            <h1>Lambda</h1>
+            <hr class="solid">
+            <article>
+                <div class="note danger">
+                    <p class="title"><b>Importante </b></p>
+                    <b>No se puede asignar una lambda a una referencia <b>var</b></p>
+                    <code class="code-block">
+                        <p><span class="code-block-comment">//Error:</span></p> 
+                        <p><span class="code-block-comment">//cannot infer type for local variable lambda:</span></p> 
+                        <p>var lambda=s->s+2; <span class="code-block-comment">//No compila</span></p>
+                        <p>var consumer = System.out::print; <span class="code-block-comment">//No compila</span></p> 
+                    </code>
+                </div>
+            </article>
+        </div>
+    </body>
+</html>
