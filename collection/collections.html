@@ -80,17 +80,28 @@
         <hr class="solid">
         <article>
             <div class="note red">
-                <p>TreeSet cannot contains null values</p>
-            </div>
-            <code class="code-block">
+                <p>TreeSet no puede contener valores nulos</p>
+                <code class="code-block">
                     <p>Set<String> set = new TreeSet<>(Arrays.asList(null,null,null)); <span class="code-block-comment">//Throws NullPointerException</span></p>
                 </code>
+            </div>
+            
             <br>
             <div class="note primary">
                 <p>
-                    TreeSet requires you to provide either Comparable or Comparator. If you don't provide Comparator
-                    explicitly,
-                    then for natural ordering <i><b>your class must implement Comparable interface.</b></i>
+                    TreSet requeire que se le <i>suministre un Comparator o que los elementos a contener implemente Comparator</i>, 
+                    de no hacerlo lanzara RuntimeException
+                    <code class="code-block">
+                        <p>record Student(String name, int age) {} <span class="code-block-comment">//Record no implementa Comparable</span></p>
+                        <p>Set<Student> students = new TreeSet<>();<span class="code-block-comment">//No se le provee un comparator</span></p></p>
+                        <p>students.add(new Student("maleman", 35));<span class="code-block-comment">//Lanza RuntimeException</span></p>    
+                        <br>
+                         <p>Set<Student> studentsCorrecto = new TreeSet<>((Student s1, Student s2) -> s2.age() - s1.age());<span class="code-block-comment">//Se le provee un comparator</span></p></p>
+                         <p>studentsCorrecto.add(new Student("maleman", 35));<span class="code-block-comment">//Todo Bien</span></p>    
+                        
+                    </code>
+                    si no se prevee un Comparator explicitamente entonces se ordenaran por orden natural.
+                    <i><b>your class must implement Comparable interface.</b></i>
                 </p>
             </div>
         </article>
