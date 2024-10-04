@@ -24,12 +24,26 @@
             <br />
             <div class="note danger">
                 <p class="title"><b>Importante </b></p>
-                <b>No se puede mezclar en los parametros de las lambdas var y tipos<b>var</b></p>
+                <b>No se puede mezclar en los parametros de las lambdas var y tipos</p>
                     <code class="code-block">
                         <p><span class="code-block-comment">//Error:</span></p> 
                         <p>Comparator<String> c = (var s1, String s2) -> 0;  interface I3 extends I2 {void m3();}</p>
                     </code>
             </div>
+
+            <h4>Reglas para declarar Lambdas validas</h4>
+            <ul>
+                <li>Si hay mas de un parametro en la parte izquierda o no hay, deben estar encerrados en parantesis</li>
+                <code class="code-block">
+                    <p> a -> a*a; <span class="code-block-comment">//Correcto se puede obviar los parentesis con un solo parametro</span></p>
+                    <p> int a -> a*a; <span class="code-block-comment">//Correcto</span></p>
+                    <p> () -> System.out.println("Hola"); <span class="code-block-comment">//Correcto</span></p>
+                    <p>(int a, int b) -> a+b; <span class="code-block-comment">//Correcto</span></p>
+                    <p>int a, int b -> a+b; <span class="code-block-comment">//No compila</span></p>
+                    <p>a,b -> a+b; <span class="code-block-comment">//No compila</span></p>
+                </code>
+            </ul>
+
 
         </article>
 
