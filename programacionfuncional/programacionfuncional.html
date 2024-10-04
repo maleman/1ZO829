@@ -58,8 +58,22 @@
                     <p>interface I2 extends I1 {void m2();} <span class="code-block-comment">//Interfaz no es funcional</span></p>
                     <p>interface I3 extends I2 {void m3();} <span class="code-block-comment">//Interfaz no es funcional</span></p>
                     <p>interface I4 { String toString(); } <span class="code-block-comment">//Interfaz no es funcional</span></p>
-                </code>
+            </code>
 
+            <div class="note danger">
+                <p>Las interfaces en Java 17 se permite que tenga metodos sobre escritos de Object como equals(Object), toString(), pero los metodos <b>default</b> no pueden sobreescribir metodos de Object </p>
+            </div>    
+            <code class="code-block">
+                <p><span class="code-block-comment-multiLine">/* </span></p>
+                <p><span class="code-block-comment-multiLine">No Compila </span></p>
+                <p><span class="code-block-comment-multiLine">error: default method toString in interface Printer</span></p> 
+                <p><span class="code-block-comment-multiLine">overrides a member of java.lang.Object */</span></p> 
+                <p>interface Printer {</p>
+                <p style="text-indent: 1em;">default String toString() {</p>
+                <p style="text-indent: 2em;">return "*";</p>
+                <p style="text-indent: 1em;">}</p>
+                <p>}</p>
+            </code>
         </article>
     </div>
 </body>

@@ -50,6 +50,11 @@ article .article-subject {
 
 .code-block .code-block-comment {
   color: gray;
+  font-style: oblique;
+}
+
+.code-block-comment-multiLine{
+  color: #6fe4b9;
 }
 
 .code-block p {
