@@ -16,8 +16,9 @@
             <p class="article-subject">1. <span class="code">Set.of()</span> crea un objeto Set inmutable
             <p>
             <div class="note warning">
-                <p><b>Lanza <span class="code">NullPointerException</span> </b>  si uno de los elementos es null,
-                <b>Lanza <span class="code">IllegalArgumentException</span></b> si contiene elementos duplicados</p>
+                <p><b>Lanza <span class="code">NullPointerException</span> </b> si uno de los elementos es null,
+                    <b>Lanza <span class="code">IllegalArgumentException</span></b> si contiene elementos duplicados
+                </p>
             </div>
             <p><i>Existen 12 sobrecargas al metodo Of</i></p>
             <code class="code-block">
@@ -37,8 +38,9 @@
             </ol>
             <p><a href="src/Test.java">Ejemplo de equals() y (==) en la interfaz Set</a></p>
             <div class="note danger">
-                <p>La invocacion de un metodo que intente mutar un objeto Set inmutable sea <b><span class="code">Set(add,
-                        addAll, remove, removeAll, retainAll)</span></b>
+                <p>La invocacion de un metodo que intente mutar un objeto Set inmutable sea <b><span
+                            class="code">Set(add,
+                            addAll, remove, removeAll, retainAll)</span></b>
                     provocara que java arroje una UnsupportedOperationException.</p>
             </div>
             <code class="code-block">
@@ -86,12 +88,14 @@
                     <p>Set<String> set = new TreeSet<>(Arrays.asList(null,null,null)); <span class="code-block-comment">//Throws NullPointerException</span></p>
                 </code>
             </div>
-            
+
             <br>
             <div class="note info">
                 <p>
-                    TreeSet requeire que se le <i>suministre un Comparator o que los elementos a contener implemente Comparator</i>, 
-                    de no hacerlo lanzara RuntimeException si no se prevee un Comparator explicitamente entonces se ordenaran por orden natural.
+                    TreeSet requeire que se le <i>suministre un Comparator o que los elementos a contener implemente
+                        Comparator</i>,
+                    de no hacerlo lanzara RuntimeException si no se prevee un Comparator explicitamente entonces se
+                    ordenaran por orden natural.
                 </p>
                 <code class="code-block">
                     <p>
@@ -169,21 +173,21 @@
         <hr class="solid">
         <article>
             <p class="article-subject">1. <span class="code">List.of()</span> crea un objeto List inmutable
-                <p>
-                <div class="note warning">
-                    <p><b>Throws <span class="code">NullPointerException</span></b> si uno de los elementos es null</p>
-                </div>
-                <p><i>Existen 12 sobrecargas al metodo Of</i></p>
-                <code class="code-block">
+            <p>
+            <div class="note warning">
+                <p><b>Throws <span class="code">NullPointerException</span></b> si uno de los elementos es null</p>
+            </div>
+            <p><i>Existen 12 sobrecargas al metodo Of</i></p>
+            <code class="code-block">
                         <p>List.of();</p>
                         <p>List.of(E1);</p>
                         <p>List.of(E1,....,E10);</p>
                         <p>List.of(E1.... elements);</p>
                     </code>
 
-                <p class="article-subject">2. <span class="code">equals(Object list)</span></p>
-                <p>La implementacion de equals en List, retornara verdadero si el objeto a comparar es una instancia de List 
-                    y si ambos objetos list contienen los mismos elementos en el <b>mismo orden</b></p>
+            <p class="article-subject">2. <span class="code">equals(Object list)</span></p>
+            <p>La implementacion de equals en List, retornara verdadero si el objeto a comparar es una instancia de List
+                y si ambos objetos list contienen los mismos elementos en el <b>mismo orden</b></p>
 
         </article>
 
@@ -212,14 +216,43 @@
             </code>
         </article>
 
+        <h1>Sort</h1>
+        <hr class="solid">
+        <article>
+            <p class="article-subject">1. <span class="code">Collection.sort()</span> ordena una coleccion
+            <p>
+            <p><i>Existen 2 sobrecargas al metodo sort <b>(Solo se permite 10 pares de clave y valor)</b></i></p>
+            <code class="code-block">
+                <p>sort(List<T> list):<span class="code-block-comment">//el parametro debe implementar Comparable</span> </p>
+                <p>sort(List<T> list, Comparator<? super T> c);</p>
+            </code>
+            <div class="note danger">
+                <p><b>Importante</b></p>
+                <p> <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Comparable.html">El
+                        metodo que abstracto de la interfaz Comparable es compareTo(Object obj)</a></p>
+                <p><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Comparator.html">El
+                        metodo que abstracto de la interfaz Comparator es compare(T o1, T o2)</a></p>
+            </div>
+            <h4>sort con un Comparator null</h4>
+            <p>El metodo sort acepta un null como segundo parametro con la condicion que los objetos implementen
+                comparable, y se ordenara basado en la implementacion de Comparable</p>
+            <code class="code-block">
+                <p>List<String> list = Arrays.asList("M", "R", "A", "P");</p>
+                <p> Collections.sort(list, null);<span class="code-block-comment">//valido String implementa Comparable</span></p>   
+                <p>System.out.println(list);<span class="code-block-comment">//imprime [A,M,P,R]</span></p>    
+            </code>
+        </article>
+
         <h1>Map</h1>
         <hr class="solid">
         <article>
             <p class="article-subject">1. <span class="code">Map.of()</span> crea un objeto Map inmutable
             <p>
             <div class="note warning">
-                <p><b>Lanza <span class="code">NullPointerException</span></b> si se le suministra un valor o clave de tipo null
-                <b>Throws <span class="code">IllegalArgumentException</span></b> si contiene claves duplicadas </p>
+                <p><b>Lanza <span class="code">NullPointerException</span></b> si se le suministra un valor o clave de
+                    tipo null
+                    <b>Throws <span class="code">IllegalArgumentException</span></b> si contiene claves duplicadas
+                </p>
             </div>
             <p><i>Existen 11 sobrecargas al metodo Of <b>(Solo se permite 10 pares de clave y valor)</b></i></p>
             <code class="code-block">

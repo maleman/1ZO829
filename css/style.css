@@ -79,6 +79,10 @@ div.note p {
   text-align: justify;
 }
 
+div.note a {
+  color: #0c0d13;
+}
+
 
 div.success {
   background-color: #ddffdd;
@@ -89,7 +93,7 @@ div.success {
 div.info {
   background-color: #e7f3fe;
   border-left: 6px solid #2196F3;
-  color:#2196F3
+  color: #2196F3
 }
 
 
@@ -106,7 +110,7 @@ div.danger {
   color: #000;
 }
 
-div.danger p.title{
+div.danger p.title {
   color: #f44336;
 }
 

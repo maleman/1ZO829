@@ -1,25 +1,53 @@
 <!DOCTYPE html>
 <html lang="ESP">
-    <head>
-        <link rel="stylesheet" href="../css/style.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div class="main-content">
-            <h1>Lambda</h1>
-            <hr class="solid">
-            <article>
-                <div class="note danger">
-                    <p class="title"><b>Importante </b></p>
-                    <b>No se puede asignar una lambda a una referencia <b>var</b></p>
+
+<head>
+    <link rel="stylesheet" href="../css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="main-content">
+        <h1>Lambda</h1>
+        <hr class="solid">
+        <article>
+            <div class="note danger">
+                <p class="title"><b>Importante</b></p>
+                <b>No se puede asignar una lambda a una referencia <b>var</b></p>
                     <code class="code-block">
                         <p><span class="code-block-comment">//Error:</span></p> 
                         <p><span class="code-block-comment">//cannot infer type for local variable lambda:</span></p> 
                         <p>var lambda=s->s+2; <span class="code-block-comment">//No compila</span></p>
                         <p>var consumer = System.out::print; <span class="code-block-comment">//No compila</span></p> 
                     </code>
-                </div>
-            </article>
-        </div>
-    </body>
+            </div>
+            <br />
+            <div class="note danger">
+                <p class="title"><b>Importante </b></p>
+                <b>No se puede mezclar en los parametros de las lambdas var y tipos<b>var</b></p>
+                    <code class="code-block">
+                        <p><span class="code-block-comment">//Error:</span></p> 
+                        <p>Comparator<String> c = (var s1, String s2) -> 0;  interface I3 extends I2 {void m3();}</p>
+                    </code>
+            </div>
+
+        </article>
+
+        <h1>Interfaz funcional</h1>
+        <hr class="solid">
+        <article>
+            <p><b>Importante</b></p>
+            <p>Una interfaz funcional es aquella que solamente posee un metodo abstracto, el objetivo de las
+                expresiones lambda es una interfaz funcional.</p>
+            <code class="code-block">
+                    <p>interface I1 { void m1();} <span class="code-block-comment">//Interfaz funcional</span></p>
+                    <p>interface I2 extends I1 {void m2();} <span class="code-block-comment">//Interfaz no es funcional</span></p>
+                    <p>interface I3 extends I2 {void m3();} <span class="code-block-comment">//Interfaz no es funcional</span></p>
+                    <p>interface I4 { String toString(); } <span class="code-block-comment">//Interfaz no es funcional</span></p>
+                </code>
+
+        </article>
+    </div>
+</body>
+
 </html>
