@@ -27,7 +27,18 @@ import java.util.concurrent.*;
 
 public class FixedThreadPoolNoThreadSafe {
     
-    private int contador;
+    /**
+     * La variable al no ser thread-safe entra en race-condition
+     * cada hilo puede leer un valor desactualizado de la variable 
+     * contador
+     */
+    //private int contador;
+
+    /**
+     * El atributo <code>volatile</code> garantiza que los hilos modifiquen la variable
+     * una a la vez, de esta manera obtenemos un resultado consistente pero no ordenado
+     */
+    private volatile int contador = 0;
 
     private void incrementarContador(){
         System.out.print((++contador)+" ");
